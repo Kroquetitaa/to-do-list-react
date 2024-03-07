@@ -1,0 +1,259 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons > * {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons > button {
+  background-color: #5d5de6;
+  color: #fff;
+  border: none;
+}
+
+.buttons > select {
+  background-color: #bebebe;
+  padding: 10px;
+}
+
+.buttons > select:focus {
+  outline-color: #5d5de6;
+}
+
+.swip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.editSwip {
+  background-color: #6aca6a;
+}
+
+.deleteSwip {
+  background-color: #db455e;
+}
+
+.taskList {
+  background-color: #e6e6e6;
+  border-radius: 16px;
+  padding: 20px;
+  width: 50%;
+  min-width: 300px;
+  max-height: 60vh;
+  overflow-y: auto;
+  list-style: none;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.taskItem {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: auto;
+  font-size: 1.1rem;
+}
+
+.taskItem:has(input:checked) {
+  background-color: #6aca6a;
+}
+
+.taskItem input {
+  margin-right: 2rem;
+  display: inline-block;
+  position: relative;
+  appearance: none;
+  background-color: #fff;
+  height: 2rem;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  border: 1px solid #777;
+  transition: 120ms box-shadow ease-in-out, 120ms border-radius ease-in-out;
+  border-radius: 4px;
+  box-shadow: inset 1rem 1rem #fff, inset -1rem -1rem #fff;
+}
+
+.taskItem input:checked {
+  background-color: #5d5de6;
+  position: relative;
+  transition: 0.1s box-shadow ease-in-out;
+  box-shadow: inset 0.25rem 0.25rem #fff, inset -0.25rem -0.25rem #fff;
+}
+
+.taskItem > .todo_text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-size: 1.2rem;
+  min-height: max-content;
+}
+
+.taskItem > .todo_text > p {
+  font-size: 1.2rem;
+}
+
+.taskItem time {
+  font-size: 0.85rem;
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  color: #969696;
+  font-size: 0.85rem;
+  font-weight: bolder;
+}
+
+.taskList::-webkit-scrollbar {
+  width: 10px;
+}
+
+.taskList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.taskList::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.taskList::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.taskList::-webkit-scrollbar-button {
+  display: none;
+}
+
+dialog {
+  width: 20rem;
+  max-width: 80lvw;
+  height: 30%;
+  min-height: 200px;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  color: #5d5de6;
+  background: #fff4;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1.5px solid #d1d5db4d;
+  display: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 0 3px #696969;
+  text-align: center;
+}
+
+dialog h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+  text-wrap: balance;
+  min-width: fit-content;
+  max-width: 90%;
+}
+
+dialog input {
+  border: none;
+  background-color: transparent;
+  font-size: calc(0.5lvw + 1rem);
+  border-top: 1px solid #777;
+  border-bottom: 1px solid #777;
+  padding: 1rem 0.5rem;
+}
+
+dialog input:focus {
+  outline: none;
+}
+
+dialog menu {
+  position: relative;
+  width: 80%;
+  margin: 3rem auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+dialog button {
+  background-color: #5d5de6;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+@media screen and (width < 780px) {
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .todo {
+    margin: 0;
+    gap: 0.8rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & button {
+      width: 100%;
+      font-size: 1.2rem;
+      padding: 0.7rem 1.2rem;
+    }
+  }
+
+  .taskList {
+    max-height: 30lvh;
+    width: calc(95% - 3rem);
+    padding: 1rem;
+  }
+
+  .taskItem {
+    min-height: 4rem;
+    padding: 0.2rem;
+  }
+
+  .todo_text {
+    font-size: 1rem;
+  }
+
+  time {
+    top: 0;
+  }
+
+  dialog {
+    & h2 {
+      margin: 0.3rem auto;
+    }
+
+    & menu {
+      margin: 1rem auto;
+    }
+  }
+}
